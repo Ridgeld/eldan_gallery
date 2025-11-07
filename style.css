@@ -1,0 +1,248 @@
+/* Переменные для цветов Википедии */
+:root {
+    --color-base: #f8f9fa; /* Светло-серый фон инфобокса и оглавления */
+    --color-content: #ffffff; /* Белый фон контента */
+    --color-border: #a2a9b1; /* Серый цвет границ */
+    --color-link: #0645ad; /* Синий цвет ссылок - ключевой стиль! */
+    --color-heading-border: #eaecf0; /* Светлый серый для нижней линии заголовка */
+    --color-text: #202122; 
+}
+
+/* ====================================
+   ОСНОВНОЙ МАКЕТ И ТИПОГРАФИКА
+   ==================================== */
+
+/* Общие стили: шрифт без засечек и размер для основного текста */
+body {
+    font-family: sans-serif; 
+    font-size: 0.9em; 
+    color: var(--color-text);
+    background-color: var(--color-content); 
+    margin: 0;
+    line-height: 1.5;
+    padding-top: 2em;
+}
+
+/* Контейнер контента: Ширина 90% для ПК, центрирование */
+#content-wrapper {
+    width: 90%; 
+    margin: 0 auto;
+    padding: 0 1em; 
+}
+
+/* Стили ссылок */
+a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* ====================================
+   ЗАГОЛОВКИ (H1 и H2)
+   ==================================== */
+
+/* Главный заголовок H1 */
+.firstHeading {
+    /* Times New Roman для заголовка */
+    font-family: "Times New Roman", Times, serif; 
+    font-size: 2em; 
+    font-weight: normal;
+    margin: 0.5em 0 0.2em;
+    border-bottom: 1px solid var(--color-heading-border);
+    padding-bottom: 0.1em;
+}
+
+/* Стили подзаголовков H2 */
+#bodyContent h2 {
+    /* Times New Roman для подзаголовков */
+    font-family: "Times New Roman", Times, serif; 
+    font-size: 1.6em; 
+    font-weight: normal;
+    border-bottom: 1px solid var(--color-heading-border);
+    margin: 1.5em 0 0.5em;
+    padding: 0 0 0.2em;
+}
+
+/* Принудительное начало H2 под оглавлением (TOC) */
+#bodyContent h2:nth-of-type(1) {
+    clear: left; 
+}
+
+
+/* ====================================
+   ИНФОБОКС
+   ==================================== */
+
+.infobox {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-base);
+    font-size: 0.9em; 
+    line-height: 1.4em;
+    margin: 0.5em 0 0.5em 1em; 
+    float: right;
+    clear: right;
+    box-sizing: border-box;
+    border-spacing: 0;
+    width: 22em; /* Ширина на ПК */
+}
+.infobox-above {
+    font-size: 1.1em; 
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5em 0.6em;
+    background-color: #f0f0f0; 
+    border-bottom: 1px solid var(--color-border);
+}
+.infobox th, .infobox td {
+    padding: 0.4em 0.6em;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+.infobox-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #a2a9b1; 
+}
+
+
+/* ====================================
+   ОГЛАВЛЕНИЕ (TOC)
+   ==================================== */
+
+.toc {
+    border: 1px solid var(--color-border);
+    background-color: #f9f9f9; 
+    padding: 0.8em 1.5em;
+    margin: 1em 1em 1em 0;
+    float: left;
+    clear: left; 
+    font-size: 0.9em;
+}
+.toctitle {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+.toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* ====================================
+   ГАЛЕРЕЯ ЭТАПОВ ЖИЗНИ
+   ==================================== */
+
+.thumbinner {
+    border: 1px solid #ccc;
+    padding: 10px 10px 0;
+    text-align: center;
+    background-color: #fcfcfc;
+    box-sizing: content-box;
+    margin: 0 auto; 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+
+.gallerybox {
+    margin: 5px;
+    background-color: #f8f8f8;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+    text-align: center;
+}
+.gallerybox img {
+    border: 1px solid #ccc; 
+    margin: 5px;
+}
+.gallerytext {
+    padding: 5px;
+    font-size: 0.8em;
+    line-height: 1.3em;
+    text-align: left;
+}
+.gallerytext p {
+    margin: 0;
+}
+.thumbcaption {
+    text-align: center;
+    font-size: 0.9em;
+    padding: 0.5em 0;
+    color: var(--color-text);
+}
+
+/* ====================================
+   ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ (TOOLTIPS)
+   ==================================== */
+
+a[title][data-tooltip-style] {
+    position: relative;
+}
+a[title][data-tooltip-style]:hover {
+    cursor: help; 
+}
+a[title][data-tooltip-style]:hover:after {
+    content: attr(title); 
+    background-color: #f8f8f8; 
+    border: 1px solid #aaa; 
+    padding: 3px 6px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    font-size: 0.85em;
+    color: #000;
+    position: absolute;
+    bottom: 100%; 
+    left: 50%;
+    transform: translateX(-50%); 
+    white-space: nowrap; 
+    z-index: 9999;
+}
+
+
+/* ====================================
+   АДАПТИВНОСТЬ (МОБИЛЬНЫЕ УСТРОЙСТВА)
+   ==================================== */
+
+@media screen and (max-width: 768px) {
+    
+    /* Для мобильных устройств возвращаем полную ширину и минимальные отступы */
+    #content-wrapper {
+        width: 100%;
+        padding: 0 0.5em; 
+    }
+    
+    /* Инфобокс на всю ширину */
+    .infobox {
+        width: 100% !important; 
+        float: none; 
+        margin: 1em 0; 
+        box-sizing: border-box;
+    }
+    
+    /* Оглавление на всю ширину */
+    .toc {
+        width: 100% !important; 
+        float: none; 
+        margin: 1em 0;
+        box-sizing: border-box;
+        padding: 0.8em 1em;
+    }
+    
+    body {
+        font-size: 1em; 
+    }
+    
+    /* Галерея: изображения могут занимать больше места, если не помещаются */
+    .thumbinner {
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .gallerybox {
+        width: 95% !important;
+        margin: 10px 0;
+    }
+}
